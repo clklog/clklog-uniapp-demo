@@ -79,7 +79,8 @@
   show_log: true,
   is_track_single_page: false,
   send_type: 'beacon',
-  server_url: 'http://10.10.222.21/receiver/api/gp?project=clklogapp&token=5388ed7459ba4c4cad0c8693fb85630a', //请修改接收地址为clklog_receiver 的接收服务地址，必须传入project和token参数
+  //接收地址为clklog-receiver 的接收服务地址，project和token参数必须传入，token是每个project对应的随机字符串，请自行随机生成。
+  server_url: 'https://xiaoxiangai-8003.test.zcunsoft.com/api/gp?project=gpzf_clklog&token=c12ae331-2629-4379-9dbd-c96b0b5006ea',
   heatmap: {
     clickmap: 'default',
     scroll_notice_map: 'default',

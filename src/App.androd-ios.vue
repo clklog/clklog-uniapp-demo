@@ -2,25 +2,27 @@
 <script lang="ts">
 import { v4 as uuidv4 } from 'uuid'
 
-// 一. 自定义生成sessionId
+// 生成sessionId
 function generateMixedUUID() {
   const uuid = uuidv4()
   const digits = uuid.replace(/[^0-9]/g, '')
   const lowercase = uuid.replace(/[^a-z]/g, '')
   return digits + lowercase // 拼接
 }
-let currentSessionId = generateMixedUUID() // 自定义生成的sessionId;
+// 生成sessionId;
+let currentSessionId = generateMixedUUID()
 //  将sessionId存储于StorageSync；
-uni.setStorageSync('currentSessionId', currentSessionId)
+// uni.setStorageSync('currentSessionId', currentSessionId)
 
-//二. SDK 初始化
+// 神策SDK初始化
 const sensors = uni.requireNativePlugin('Sensorsdata-UniPlugin-App')
 sensors.initSDK({
-  server_url: '',//配置sdk接收地址
+  //接收地址为clklog-receiver 的接收服务地址，project和token参数必须传入，token是每个project对应的随机字符串，请自行随机生成。
+  server_url: 'https://xiaoxiangai-8003.test.zcunsoft.com/api/gp?project=gpzf_clklog&token=c12ae331-2629-4379-9dbd-c96b0b5006ea',
   show_log: true, //是否开启日志
   global_properties: {
     // 配置全局属性，所有上报事件属性中均会携带
-    $event_session_id: currentSessionId,
+    $event_session_id: currentSessionId
   }, //全局属性，object 类型
   app: {
     // Android & iOS 初始化配置
@@ -47,12 +49,11 @@ sensors.initSDK({
   }
 })
 
-
 export default {
-  //四. SDK集成(sensors)全局注册
+  //SDK集成(sensors)全局注册
   globalData: {
     sensors: sensors,
-    pageViewEventName: '$AppViewScreen' //配置sdk动态路由;事件采集名称
+    pageViewEventName: '$AppViewScreen' //ios 和 android中的页面浏览事件名称为$AppViewScreen
   }
 }
 </script>

@@ -1,26 +1,15 @@
 <template>
-  <view
-    style="
+  <view style="
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    "
-  >
+    ">
     <div class="search-box">
       <div class="search-box-inside">
         <div class="search-box-inside-left">上海</div>
-        <image
-          class="search-box-searchIcon"
-          src="../../static/icon-search.png"
-          alt="放大"
-        />
-        <input
-          class="search-box-searchInput"
-          placeholder="您想租哪儿？"
-          placeholder-style="color:#B6BBD0;font-size:24rpx;"
-          type="search"
-        />
+        <image class="search-box-searchIcon" src="../../static/icon-search.png" alt="放大" />
+        <input class="search-box-searchInput" placeholder="您想租哪儿？" placeholder-style="color:#B6BBD0;font-size:24rpx;" type="search" />
       </div>
       <image class="icon-kefu" src="@/static/icon-kefu.png" />
     </div>
@@ -50,49 +39,40 @@
       </div>
     </div>
 
-    <view @click="tonextPage()"
-      ><image class="zoneImg" src="@/static/zone.png"
-    /></view>
+    <view @click="tonextPage()">
+      <image class="zoneImg" src="@/static/zone.png" />
+    </view>
 
-    <view
-      style="
+    <view style="
         margin: 130px;
         font-size: 20px;
         font-weight: 600;
         color: rgb(171 171 171);
-      "
-      >暂无数据</view
-    >
+      ">暂无数据</view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { onShow } from "@dcloudio/uni-app";
+import { onShow } from '@dcloudio/uni-app'
 
 onShow(() => {
-  let sensors = getApp().globalData.sensors;
-  let pageViewEventName = getApp().globalData.pageViewEventName;
+  let sensors = getApp().globalData.sensors
+  let pageViewEventName = getApp().globalData.pageViewEventName
   if (pageViewEventName) {
-    // 小程序，Ios,Android
     sensors.track(pageViewEventName, {
-      $url: "pages/home/index", //页面路径
-      $title: "首页", //页面标题;
-    });
-  } else {
-    // h5
-    sensors.quick("autoTrackSinglePage", {
-      $title: "首页",
-    });
+      $url: 'pages/home/index', //页面路径，ios、android 需传入该参数，否则采集不到受访页面地址
+      $title: '首页'
+    })
   }
-});
+})
 
-import ZcRouter from "@/utils/ZcRouter";
+import ZcRouter from '@/utils/ZcRouter'
 
 const tonextPage = () => {
   // uni.navigateTo({ url: `/pages/zone/index` });
-};
-import { getCurrentPageTitle } from "@/utils/sensors";
-import { onShow } from "@dcloudio/uni-app";
+}
+import { getCurrentPageTitle } from '@/utils/sensors'
+import { onShow } from '@dcloudio/uni-app'
 </script>
 
 <style lang="scss" scoped>
@@ -128,7 +108,7 @@ import { onShow } from "@dcloudio/uni-app";
       position: relative;
     }
     .search-box-inside-left:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 0;
       height: 0;

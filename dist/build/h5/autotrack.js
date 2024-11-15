@@ -79,7 +79,8 @@
   show_log: true,
   is_track_single_page: false,
   send_type: 'beacon',
-  server_url: '', //配置sdk接收地址
+  //接收地址为clklog-receiver 的接收服务地址，project和token参数必须传入，token是每个project对应的随机字符串，请自行随机生成。
+  server_url: 'https://xiaoxiangai-8003.test.zcunsoft.com/api/gp?project=gpzf_clklog&token=c12ae331-2629-4379-9dbd-c96b0b5006ea',
   heatmap: {
     clickmap: 'default',
     scroll_notice_map: 'default',

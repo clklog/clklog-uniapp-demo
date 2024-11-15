@@ -2,15 +2,15 @@
 export default {
   globalData: {
     sensors: sensors,
+    pageViewEventName: '$pageview'
   },
   onLaunch: function () {
-    console.log("App Launch");
+    console.log('App Launch')
   },
-  onShow: function () {
-  },
+  onShow: function () {},
   onHide: function () {
-    console.log("App Hide");
-  },
-};
+    console.log('App Hide')
+  }
+}
 </script>
 <style></style>

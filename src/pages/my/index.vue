@@ -3,11 +3,7 @@
     <div class="top-box">
       <div class="top-box-inner" v-if="isLogin">
         <div class="top-box-left">
-          <image
-            class="top-box-headerImg"
-            @click="updata"
-            src="@/static/mine-active.png"
-          />
+          <image class="top-box-headerImg" @click="updata" src="@/static/mine-active.png" />
           <div class="updata-header" @click="updata">更新资料</div>
         </div>
         <div class="top-box-line"></div>
@@ -15,15 +11,15 @@
           <div class="islogin-info">
             用户昵称
             {{
-              userInfo && userInfo.nickName
-                ? userInfo.nickName
-                : userInfo.mobilePhone
+            userInfo && userInfo.nickName
+            ? userInfo.nickName
+            : userInfo.mobilePhone
             }}
           </div>
           <div class="islogin-info">
             手机号码
             {{
-              userInfo && userInfo.mobilePhone ? userInfo.mobilePhone : "暂无"
+            userInfo && userInfo.mobilePhone ? userInfo.mobilePhone : "暂无"
             }}
           </div>
         </div>
@@ -43,35 +39,28 @@
       <div class="common-title">常用功能</div>
       <div class="common-inner">
         <div class="coomon-inner-item" @click="toCollect">
-          <image src="@/static/icon-my-collect.png" alt="" />
-          我的收藏
+          <image src="@/static/icon-my-collect.png" alt />我的收藏
         </div>
         <div class="coomon-inner-item" @click="toFootMark">
-          <image src="@/static/icon-my-footprint.png" alt="" />
-          我的足迹
+          <image src="@/static/icon-my-footprint.png" alt />我的足迹
         </div>
         <div class="coomon-inner-item" @click="toReverse">
-          <image src="@/static/icon-my-reverse.png" alt="" />
-          我的预约
+          <image src="@/static/icon-my-reverse.png" alt />我的预约
         </div>
         <div class="coomon-inner-item" @click="pop_show = true">
-          <image src="@/static/icon-my-kefu.png" alt="" />
-          我的客服
+          <image src="@/static/icon-my-kefu.png" alt />我的客服
         </div>
       </div>
       <div class="common-inner">
         <div class="coomon-inner-item" @click="toRenting">
-          <image src="@/static/icon-my-ineedrent.png" alt="" />
-          委托找房
+          <image src="@/static/icon-my-ineedrent.png" alt />委托找房
         </div>
         <div class="coomon-inner-item" @click="toRentalList">
-          <image src="@/static/icon-my-rent.png" alt="" />
-          投放房源
+          <image src="@/static/icon-my-rent.png" alt />投放房源
         </div>
 
         <div class="coomon-inner-item" @click="toPlatform">
-          <image src="@/static/platformIcon.png" alt="" />
-          平台介绍
+          <image src="@/static/platformIcon.png" alt />平台介绍
         </div>
       </div>
     </div>
@@ -79,26 +68,20 @@
 </template>
 
 <script setup>
-import { onShow } from "@dcloudio/uni-app";
+import { onShow } from '@dcloudio/uni-app'
 onShow(() => {
-  let sensors = getApp().globalData.sensors;
-  let pageViewEventName = getApp().globalData.pageViewEventName;
+  let sensors = getApp().globalData.sensors
+  let pageViewEventName = getApp().globalData.pageViewEventName
   if (pageViewEventName) {
-    // 小程序，Ios,Android
     sensors.track(pageViewEventName, {
-      $url: "pages/my/index", //页面路径
-      $title: "我的", //页面标题
-    });
-  } else {
-    // h5
-    sensors.quick("autoTrackSinglePage", {
-      $title: "我的",
-    });
+      $url: 'pages/my/index', //页面路径，ios、android 需传入该参数，否则采集不到受访页面地址
+      $title: '我的' //页面标题
+    })
   }
-});
+})
 const check_login = () => {
-  uni.showToast({ title: "当前为演示环境", icon: "none" });
-};
+  uni.showToast({ title: '当前为演示环境', icon: 'none' })
+}
 </script>
 <style lang="scss" scoped>
 .container {
