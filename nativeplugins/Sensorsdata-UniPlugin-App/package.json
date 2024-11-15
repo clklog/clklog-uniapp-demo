@@ -1,0 +1,43 @@
+{
+  "name": "Sensorsdata-UniPlugin-App",
+  "id": "Sensorsdata-UniPlugin-App",
+  "version": "0.1.8",
+  "description": "插件描述信息",
+  "_dp_type": "nativeplugin",
+  "_dp_nativeplugin": {
+    "android": {
+      "plugins": [{
+        "type": "module",
+        "name": "Sensorsdata-UniPlugin-App",
+        "class": "com.sensorsdata.uniapp.UniSensorsAnalyticsModule"
+      }],
+      "compileOptions": {
+        "sourceCompatibility": "1.8",
+        "targetCompatibility": "1.8"
+      },
+      "integrateType": "aar",
+      "minSdkVersion": 19,
+      "permissions": [
+        "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>"
+      ],
+      "dependencies": [
+        "com.sensorsdata.analytics.android:SensorsAnalyticsSDK:6.8.0",
+        "com.sensorsdata.analytics.android:SensorsFocusSDK:0.6.3"
+      ],
+      "parameters": {
+      }
+    },
+    "ios": {
+      "plugins": [
+        {
+          "type": "module",
+          "name": "Sensorsdata-UniPlugin-App",
+          "class": "UniSensorsAnalyticsModule"
+        }
+      ],
+      "integrateType": "framework",
+      "hooksClass": "UniSensorsAnalyticsProxy",
+      "deploymentTarget": "9.0"
+    }
+  }
+}
