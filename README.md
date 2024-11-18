@@ -2,7 +2,7 @@
 
 # uni-app SDK集成说明
 
-如果打包包含 h5 ，建议采用神策web js sdk的方式引入  sa-sdk-javascript 插件（原因：uni-app-js会话未实现需要自己实现）。
+如果打包包含 h5 ，由于 uni-app-js 会话未实现需要自己实现，建议采用神策 web js sdk 的方式引入 sa-sdk-javascript 插件。
 
 如果打包包含 微信小程序 ，需要引入  uni-app-js 插件。
 
@@ -28,11 +28,11 @@ iso/andriod集成参考文档：<https://manual.sensorsdata.cn/sa/3.0/zh_cn/inte
 
  demo中分别使用`App.h5.vue`、`App.minprogram.vue`、`App.androd-ios.vue`三个文件对`web端`、`小程序端`和`移动端`做了sdk的引用、初始化和集成示例，请根据实际情况选择对应集成参考示例。
 
-# h5 sdk引用参考
+# web-js-sdk 引用参考
 
  web js 埋点集成参考：<https://clklog.com/#/integration/reference>
 
- 1. 下载集成参考页面中的ClKLOG WEB JS SDK 并解压至根目录。
+ 1. 下载集成参考页面中的 ClKLOG WEB JS SDK 并解压至根目录。
 
  2. 将 autotrack.js 中的 server_url 修改为 clklog-receiver 的数据接收服务地址。
 
