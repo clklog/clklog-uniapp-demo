@@ -71,7 +71,6 @@ import ZcRouter from '@/utils/ZcRouter'
 const tonextPage = () => {
   // uni.navigateTo({ url: `/pages/zone/index` });
 }
-import { getCurrentPageTitle } from '@/utils/sensors'
 import { onShow } from '@dcloudio/uni-app'
 </script>
 

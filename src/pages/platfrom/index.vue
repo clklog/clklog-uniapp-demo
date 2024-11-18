@@ -8,7 +8,6 @@
 
 <script>
 import { baseURL } from '@/http/http'
-import { getCurrentPageTitle } from '@/utils/sensors'
 // 动态加载title
 
 export default {
